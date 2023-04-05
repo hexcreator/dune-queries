@@ -1,5 +1,6 @@
 # Find Function Calls
 🔗 https://dune.com/queries/2330700
+
 Using v2 Dune SQL, you can find function calls. In the query above, I find all Uniswap NFT Aggregator `execute(bytes,bytes[])` calls that start with a `Seaport` command. Technique:
 
 1. Scan `traces` table to find all transactions sent to the Uniswap NFT Aggregator at 0xEf1c6E67703c7BD7107eed8303Fbe6EC2554BF6B.
