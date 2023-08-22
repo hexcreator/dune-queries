@@ -1,13 +1,15 @@
-select
-  date_trunc('day', block_time) as day,
-  sum(usd_amount) as "Volume ($)",
-  count(*) as "Trades",
+SELECT
+  DATE_TRUNC('day', block_time) AS day,
+  SUM(amount_usd) AS "Volume ($)",
+  COUNT(*) AS "Trades",
   platform
-from
+FROM
   nft.trades
-where
-  block_time > now() - interval '3  days'
-group by
+WHERE
+  blockchain = 'ethereum'
+  AND block_time > CURRENT_TIMESTAMP - INTERVAL '3' day
+GROUP BY
   platform,
-  day
-  order by "Volume ($)" desc
+  1
+ORDER BY
+  "Volume ($)" DESC
